@@ -94,8 +94,11 @@ public class WebSettingsHostApiImpl implements WebSettingsHostApi {
     @Override
     public void setCacheMode(
             @NonNull Long instanceId, @NonNull Integer mode) {
+        System.out.println("setCacheMode "+mode);
         final WebSettings webSettings = Objects.requireNonNull(instanceManager.getInstance(instanceId));
         webSettings.setCacheMode(mode);
+
+        System.out.println("setCacheMode result"+webSettings.getCacheMode());
     }
 
   @Override
