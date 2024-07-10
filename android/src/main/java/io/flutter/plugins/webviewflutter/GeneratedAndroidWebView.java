@@ -1846,6 +1846,8 @@ public class GeneratedAndroidWebView {
 
     void setMediaPlaybackRequiresUserGesture(@NonNull Long instanceId, @NonNull Boolean require);
 
+      void setCacheMode(@NonNull Long instanceId, @NonNull Integer mode);
+
     void setSupportZoom(@NonNull Long instanceId, @NonNull Boolean support);
 
     void setLoadWithOverviewMode(@NonNull Long instanceId, @NonNull Boolean overview);
@@ -2062,6 +2064,33 @@ public class GeneratedAndroidWebView {
           channel.setMessageHandler(null);
         }
       }
+        {
+            BasicMessageChannel<Object> channel =
+                    new BasicMessageChannel<>(
+                            binaryMessenger,
+                            "dev.flutter.pigeon.webview_flutter_android.WebSettingsHostApi.setCacheMode",
+                            getCodec());
+            if (api != null) {
+                channel.setMessageHandler(
+                        (message, reply) -> {
+                            ArrayList<Object> wrapped = new ArrayList<Object>();
+                            ArrayList<Object> args = (ArrayList<Object>) message;
+                            Number instanceIdArg = (Number) args.get(0);
+                            Number modeArg = (Number) args.get(1);
+                            try {
+                                api.setCacheMode(
+                                        (instanceIdArg == null) ? null : instanceIdArg.longValue(), modeArg.intValue());
+                                wrapped.add(0, null);
+                            } catch (Throwable exception) {
+                                ArrayList<Object> wrappedError = wrapError(exception);
+                                wrapped = wrappedError;
+                            }
+                            reply.reply(wrapped);
+                        });
+            } else {
+                channel.setMessageHandler(null);
+            }
+        }
       {
         BasicMessageChannel<Object> channel =
             new BasicMessageChannel<>(

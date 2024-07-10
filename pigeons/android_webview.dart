@@ -302,6 +302,8 @@ abstract class WebSettingsHostApi {
 
   void setMediaPlaybackRequiresUserGesture(int instanceId, bool require);
 
+  void setCacheMode(int instanceId, int mode);
+
   void setSupportZoom(int instanceId, bool support);
 
   void setLoadWithOverviewMode(int instanceId, bool overview);
